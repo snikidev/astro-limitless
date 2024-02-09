@@ -6,18 +6,19 @@ Why I'm doing this? I'm just curious, that's all.
 
 ### List of requirements
 
-[x] Has React & TypeScript
-[x] Static pages: Fetch content from headless CMS at build time
-[x] Global state management shared between components without prop drilling
-[x] Custom theme (global)
-[x] Scoped css (e.g. .module.css)
-[] SSR rendered content that needs to be changed or updated from the client (e.g. using `@tanstack/query`)
-[] User Authentication with hidden pages
-[] Design System in a Storybook
-[] Unit testing
-[] Visual (snapshot) testing
-[] Server API function (or action) where secret keys are used
-[] Deploy to custom Docker based environment
+- [x] Has React & TypeScript
+- [x] Static pages: Fetch content from headless CMS at build time
+- [x] Global state management shared between components without prop drilling
+- [x] Custom theme (global)
+- [x] Scoped css (e.g. .module.css)
+- [ ] SSR rendered content that needs to be changed or updated from the client (e.g. using `@tanstack/query`)
+- [ ] User Authentication with hidden pages
+- [ ] Design System in a Storybook
+- [ ] Testing
+    - [ ] Unit
+    - [ ] Visual (snapshot)
+- [ ] Server API function (or action) where secret keys are used
+- [ ] Deploy to custom Docker based environment
 
 ## 🚀 Project Structure
 
