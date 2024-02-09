@@ -6,7 +6,11 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   output: "hybrid",
   adapter: node({
-    mode: "standalone"
+    mode: "standalone",
   }),
-  integrations: [react(), tailwind()]
+  integrations: [react(), tailwind()],
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "ru"],
+  },
 });

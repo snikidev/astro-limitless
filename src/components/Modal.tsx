@@ -7,34 +7,37 @@ import {
   Button,
 } from "@nextui-org/react";
 import { useUnit } from "effector-react";
-import {  $menuIsOpen, toggleMenu } from "../layouts/store";
+import { $menuIsOpen, toggleMenu } from "../layouts/store";
+import { useTranslations } from "../i18n/utils";
 
-export const Modal = () => {
+interface Props {
+  lang: "en" | "ru";
+}
+
+export const Modal = ({ lang }: Props) => {
   const [isOpen, setIsOpen] = useUnit([$menuIsOpen, toggleMenu]);
-  console.log(isOpen);
+  const t = useTranslations(lang);
+
   return (
     <NextModal isOpen={isOpen} onOpenChange={setIsOpen}>
       <ModalContent>
         {(onClose) => (
           <>
             <ModalHeader className="flex flex-col gap-1">
-              ⚠️ Important ⚠️
+              ⚠️ {t("modal.header")} ⚠️
             </ModalHeader>
             <ModalBody>
               <p>
-                This modal was opened by a click on a button inside the `.astro`
-                component. And it can be closed by clicking on the close button
-                inside the React component.
+                {t("modal.paragraph1")}
               </p>
-              <p>How?</p>
+              <p>{t("modal.how")}</p>
               <p>
-                Global framework agnostic state store made, in this case, with
-                Effector.
+                {t("modal.paragraph2")}
               </p>
             </ModalBody>
             <ModalFooter>
               <Button color="primary" onPress={onClose}>
-                Got it!
+                {t("modal.action")}
               </Button>
             </ModalFooter>
           </>

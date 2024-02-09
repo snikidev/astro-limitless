@@ -15,7 +15,7 @@ Why I'm doing this? I'm just curious, that's all.
 - [ ] User Authentication with multiple hidden pages
     - [ ] Server-side rendered page
     - [ ] Client-side rendered page
-- [ ] Localisation and internationalisation
+- [x] Localisation and internationalisation
 - [ ] Embedding Google Analytics and other tracking tools
 - [ ] Design System in a Storybook
 - [ ] Testing
