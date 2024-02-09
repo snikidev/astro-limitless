@@ -12,7 +12,11 @@ Why I'm doing this? I'm just curious, that's all.
 - [x] Custom theme (global)
 - [x] Scoped css (e.g. .module.css)
 - [ ] SSR rendered content that needs to be changed or updated from the client (e.g. using `@tanstack/query`)
-- [ ] User Authentication with hidden pages
+- [ ] User Authentication with multiple hidden pages
+    - [ ] Server-side rendered page
+    - [ ] Client-side rendered page
+- [ ] Localisation and internationalisation
+- [ ] Embedding Google Analytics and other tracking tools
 - [ ] Design System in a Storybook
 - [ ] Testing
     - [ ] Unit
