@@ -22,6 +22,7 @@ export const ui = {
     "modal.paragraph2":
       "Global framework agnostic state store made, in this case, with Effector.",
     "modal.action": "Got it!",
+    "login.title": "Login",
   },
   ru: {
     "layout.switch": "Переключить на 🇬🇧",
@@ -39,5 +40,6 @@ export const ui = {
     "modal.paragraph2":
       "Универсальный state manager, не зависящий от фреймворка, созданный, в данном случае, с помощью Effector.",
     "modal.action": "Есть!",
+    "login.title": "Войти",
   },
 } as const;

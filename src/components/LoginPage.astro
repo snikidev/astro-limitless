@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { LoginForm } from "./LoginForm";
+
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title={`${t("login.title")}`}>
+  <div class="max-w-xl mx-auto my-20">
+    <LoginForm client:only="react" />
+  </div>
+</Layout>
