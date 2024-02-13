@@ -1,13 +1,8 @@
 import { useState, useEffect } from "react";
-import { createClient } from "@supabase/supabase-js";
 import type { Session } from "@supabase/supabase-js";
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
-
-const supabase = createClient(
-  import.meta.env.PUBLIC_SUPABASE_PROJECT_URL,
-  import.meta.env.PUBLIC_SUPABASE_KEY
-);
+import { supabase } from "../lib/supabase";
 
 export const LoginForm = () => {
   const [session, setSession] = useState<Session | null>(null);
@@ -20,6 +15,7 @@ export const LoginForm = () => {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (!session) return;
       setSession(session);
     });
 
@@ -32,6 +28,8 @@ export const LoginForm = () => {
         supabaseClient={supabase}
         appearance={{ theme: ThemeSupa }}
         providers={["github"]}
+        // TODO: Site url variable
+        redirectTo="http://localhost:4321/api/auth"
       />
     );
   } else {
