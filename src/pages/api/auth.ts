@@ -1,4 +1,4 @@
-import { createServerClient } from "@supabase/ssr";
+import { serverSupabase } from "../../lib/supabase";
 import { type APIRoute } from "astro";
 
 export const GET: APIRoute = async ({ request, cookies, redirect }) => {
@@ -6,28 +6,12 @@ export const GET: APIRoute = async ({ request, cookies, redirect }) => {
   const code = requestUrl.searchParams.get("code");
 
   if (code) {
-    const supabase = createServerClient(
-      import.meta.env.PUBLIC_SUPABASE_PROJECT_URL,
-      import.meta.env.PUBLIC_SUPABASE_KEY,
-      {
-        cookies: {
-          get(key) {
-            return cookies.get(key)?.value;
-          },
-          set(key, value, options) {
-            cookies.set(key, value, options);
-          },
-          remove(key, options) {
-            cookies.delete(key, options);
-          },
-        },
-      }
-    );
-
-    const { error } = await supabase.auth.exchangeCodeForSession(code);
-
+    const supabase = serverSupabase(cookies);
+    const { error, data } = await supabase.auth.exchangeCodeForSession(code);
     if (!error) {
-      return redirect(`/login?next=${requestUrl.searchParams.get("next")}`);
+      cookies.set('al-access-token', data?.session?.access_token, { path: '/', maxAge: 100 * 365 * 24 * 60 * 60, sameSite: 'lax', secure: true });
+      cookies.set('al-refresh-token', data?.session?.refresh_token, { path: '/', maxAge: 100 * 365 * 24 * 60 * 60, sameSite: 'lax', secure: true });
+      return redirect('/login');
     }
 
     // return the user to an error page with instructions

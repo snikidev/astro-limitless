@@ -1,6 +1,40 @@
 ---
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Avatar,
+  Button,
+} from "@nextui-org/react";
 import Layout from "../layouts/Layout.astro";
+import { serverSupabase } from "../lib/supabase";
 
+const supabase = serverSupabase(Astro.cookies);
+const {
+  data: { user },
+} = await supabase.auth.getUser();
 ---
 
-<Layout title="Dashboard">Dashboard</Layout>
+<Layout title="Dashboard">
+  <div class="container mx-auto max-w-[340px]">
+    <div class="flex gap-5">
+      <Avatar
+        isBordered
+        radius="full"
+        size="lg"
+        src={user?.user_metadata.avatar_url}
+        imgProps={{ className: "opacity-1" }}
+      />
+      <div class="flex flex-col gap-1 items-start justify-center">
+        <h4 class="text-small font-semibold leading-none text-default-600">
+          {user?.user_metadata.full_name}
+        </h4>
+        <h5 class="text-small tracking-tight text-default-400">
+          @{user?.user_metadata.user_name}
+        </h5>
+      </div>
+    </div>
+    <div></div>
+  </div>
+</Layout>
