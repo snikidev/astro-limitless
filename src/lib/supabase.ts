@@ -64,23 +64,8 @@ export const supabase = createClient(
   }
 );
 
-export const onAuthChangeClient = () => {
-  supabase.auth.onAuthStateChange((event, session) => {
-    if (event === "SIGNED_OUT") {
-      const expires = new Date(0).toUTCString();
-      document.cookie = `al-access-token=; path=/; expires=${expires}; SameSite=Lax; secure`;
-      document.cookie = `al-refresh-token=; path=/; expires=${expires}; SameSite=Lax; secure`;
-    } else if (
-      (event === "SIGNED_IN" || event === "TOKEN_REFRESHED") &&
-      session
-    ) {
-      const maxAge = 100 * 365 * 24 * 60 * 60; // 100 years, never expires
-      document.cookie = `al-access-token=${session.access_token}; path=/; max-age=${maxAge}; SameSite=Lax; secure`;
-      document.cookie = `al-refresh-token=${session.refresh_token}; path=/; max-age=${maxAge}; SameSite=Lax; secure`;
-    }
-  });
-};
 
+// TODO: astro cookies type
 export const getUser = async (cookies) => {
   const refreshToken = cookies["al-refresh-token"];
   const accessToken = cookies["al-access-token"];
@@ -96,5 +81,5 @@ export const getUser = async (cookies) => {
   }
 
   // returns user information
-  await supabase.auth.getUser();
+  return await supabase.auth.getUser();
 };

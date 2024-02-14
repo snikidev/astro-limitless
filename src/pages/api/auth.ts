@@ -4,7 +4,6 @@ import { type APIRoute } from "astro";
 export const GET: APIRoute = async ({ request, cookies, redirect }) => {
   const requestUrl = new URL(request.url);
   const code = requestUrl.searchParams.get("code");
-  const next = `/auth?next=${requestUrl.searchParams.get("next")}`;
 
   if (code) {
     const supabase = createServerClient(
@@ -28,7 +27,7 @@ export const GET: APIRoute = async ({ request, cookies, redirect }) => {
     const { error } = await supabase.auth.exchangeCodeForSession(code);
 
     if (!error) {
-      return redirect(next);
+      return redirect(`/login?next=${requestUrl.searchParams.get("next")}`);
     }
 
     // return the user to an error page with instructions
