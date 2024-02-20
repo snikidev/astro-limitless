@@ -20,8 +20,8 @@ Why I'm doing this? I'm just curious, that's all.
 - [x] Embedding Google Analytics and other tracking tools
 - [ ] ❌ Design System in a Storybook
 - [ ] Testing
-    - [ ] Unit
-    - [ ] Visual (snapshot)
+    - [x] ❌ Unit
+    - [x] Visual (snapshot)/Integration
 - [x] Server API function (or action) where secret keys are used
 - [ ] Deploy to custom Docker based environment
 

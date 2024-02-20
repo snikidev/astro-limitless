@@ -4,7 +4,6 @@ import type { AstroCookies } from "astro";
 import { createServerClient } from "@supabase/ssr";
 import type { CookieOptions } from "@supabase/ssr";
 import jsCookie from "js-cookie";
-import { COOKIE_ACCESS_TOKEN, COOKIE_REFRESH_TOKEN } from "../constants";
 
 const customStorageAdapter: SupportedStorage = {
   getItem: (key) => {
