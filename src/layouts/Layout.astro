@@ -11,6 +11,8 @@ const { title } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const GA_MEASUREMENT_ID = import.meta.env.GA_MEASUREMENT_ID;
 ---
 
 <!doctype html>
@@ -21,16 +23,23 @@ const t = useTranslations(lang);
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <script
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
+    ></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", GA_MEASUREMENT_ID);
+    </script>
     <title>{title}</title>
   </head>
   <body>
     <div class="flex items-center justify-between m-4">
-      <Button
-        data-menu-button
-        color="primary"
-        variant="light"
-        client:visible
-      >
+      <Button data-menu-button color="primary" variant="light" client:visible>
         {t("nav.menu")}
       </Button>
       <Link isBlock href={lang === "en" ? "ru" : "/"} color="foreground">

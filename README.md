@@ -11,17 +11,18 @@ Why I'm doing this? I'm just curious, that's all.
 - [x] Global state management shared between components without prop drilling
 - [x] Custom theme (global)
 - [x] Scoped css (e.g. .module.css)
+- [ ] Incremental Static Regeneration (ISR)
 - [ ] SSR rendered content that needs to be changed or updated from the client (e.g. using `@tanstack/query`)
-- [ ] User Authentication with multiple hidden pages
-    - [ ] Server-side rendered page
-    - [ ] Client-side rendered page
+- [x] User Authentication with multiple hidden pages
+    - [x] Server-side rendered page
+    - [x] Client-side rendered page
 - [x] Localisation and internationalisation
-- [ ] Embedding Google Analytics and other tracking tools
-- [ ] Design System in a Storybook
+- [x] Embedding Google Analytics and other tracking tools
+- [ ] ❌ Design System in a Storybook
 - [ ] Testing
     - [ ] Unit
     - [ ] Visual (snapshot)
-- [ ] Server API function (or action) where secret keys are used
+- [x] Server API function (or action) where secret keys are used
 - [ ] Deploy to custom Docker based environment
 
 ## 🚀 Project Structure
