@@ -19,9 +19,9 @@ Why I'm doing this? I'm just curious, that's all.
 - [x] Localisation and internationalisation
 - [x] Embedding Google Analytics and other tracking tools
 - [ ] ❌ Design System in a Storybook
-- [ ] Testing
+- [x] Testing
     - [x] ❌ Unit
-    - [x] Visual (snapshot)/Integration
+    - [x] Visual (snapshot)/e2e
 - [x] Server API function (or action) where secret keys are used
 - [ ] Deploy to custom Docker based environment
 
