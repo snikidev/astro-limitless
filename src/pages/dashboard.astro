@@ -1,19 +1,27 @@
 ---
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Avatar,
-  Button,
-} from "@nextui-org/react";
+import { Avatar } from "@nextui-org/react";
 import Layout from "../layouts/Layout.astro";
 import { serverSupabase } from "../lib/supabase";
+import {
+  Users,
+  queryClient,
+  USERS_QUERY_KEY,
+  queryFn,
+} from "../components/Users";
 
 const supabase = serverSupabase(Astro.cookies);
 const {
   data: { user },
 } = await supabase.auth.getUser();
+
+if (!user) {
+  return Astro.redirect("/login");
+}
+
+await queryClient.fetchQuery({
+  queryKey: [USERS_QUERY_KEY],
+  queryFn,
+});
 ---
 
 <Layout title="Dashboard">
@@ -35,6 +43,9 @@ const {
         </h5>
       </div>
     </div>
-    <div></div>
+    <div class="my-10 grid gap-8">
+      <h1 class="text-center text-lg font-semibold">GitHub Users</h1>
+      <Users client:only="react" />
+    </div>
   </div>
 </Layout>

@@ -12,18 +12,18 @@ Why I'm doing this? I'm just curious, that's all.
 - [x] Custom theme (global)
 - [x] Scoped css (e.g. .module.css)
 - [ ] Incremental Static Regeneration (ISR)
-- [ ] SSR rendered content that needs to be changed or updated from the client (e.g. using `@tanstack/query`)
+- [x] ❌ SSR rendered content that needs to be changed or updated from the client (e.g. using `@tanstack/query`)
 - [x] User Authentication with multiple hidden pages
     - [x] Server-side rendered page
     - [x] Client-side rendered page
 - [x] Localisation and internationalisation
 - [x] Embedding Google Analytics and other tracking tools
-- [ ] ❌ Design System in a Storybook
+- [x] ❌ Design System in a Storybook
 - [x] Testing
     - [x] ❌ Unit
     - [x] Visual (snapshot)/e2e
 - [x] Server API function (or action) where secret keys are used
-- [ ] Deploy to custom Docker based environment
+- [x] Deploy to custom Docker based environment
 
 ## 🚀 Project Structure
 
