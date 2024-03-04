@@ -11,7 +11,6 @@ Why I'm doing this? I'm just curious, that's all.
 - [x] Global state management shared between components without prop drilling
 - [x] Custom theme (global)
 - [x] Scoped css (e.g. .module.css)
-- [ ] Incremental Static Regeneration (ISR)
 - [x] ❌ SSR rendered content that needs to be changed or updated from the client (e.g. using `@tanstack/query`)
 - [x] User Authentication with multiple hidden pages
     - [x] Server-side rendered page
@@ -23,6 +22,7 @@ Why I'm doing this? I'm just curious, that's all.
     - [x] ❌ Unit
     - [x] Visual (snapshot)/e2e
 - [x] Server API function (or action) where secret keys are used
+- [x] ❌ Incremental Static Regeneration (ISR)
 - [x] Deploy to custom Docker based environment
 
 ## 🚀 Project Structure
